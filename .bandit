@@ -1,0 +1,5 @@
+# Check out  https://bandit.readthedocs.io/en/latest/config.html for more info.
+
+[bandit]
+targets: src
+exclude: tests,venv

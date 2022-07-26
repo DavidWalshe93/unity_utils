@@ -1,0 +1,8 @@
+# Check out https://coverage.readthedocs.io/en/6.4/config.html for more info
+
+[run]
+omit =
+    *tests*,
+    *logging*,
+    *src/__init__.py*,
+    *lambda_functions/__init__.py*

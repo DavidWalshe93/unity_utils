@@ -1,0 +1,15 @@
+# Docker config for LocalStack Docker Image
+
+version: "3.8"
+
+services:
+  localstack:
+    container_name: localstack
+    image: localstack/localstack
+    ports:
+      - "127.0.0.1:4566:4566"
+    environment:
+      # Add AWS services here as a comma-separated list
+      - SERVICES=dynamodb
+    volumes:
+      - "/tmp/localstack"

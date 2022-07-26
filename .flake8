@@ -1,0 +1,7 @@
+# Check out https://flake8.pycqa.org/en/latest/user/options.html for details on options
+
+[flake8]
+exclude = .git, tests, venv, logging
+max-line-length = 120
+ignore = E203,W503
+jobs = auto

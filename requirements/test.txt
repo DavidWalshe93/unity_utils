@@ -1,0 +1,11 @@
+-r base.txt
+bandit
+flake8
+pylint
+pytest-cov
+pytest-env
+pytest-icdiff
+pytest-mock
+pytest-randomly
+pytest-sugar
+pytest
