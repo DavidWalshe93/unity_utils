@@ -19,10 +19,10 @@ PIP=${SCRIPTS_DIR}/python -m pip
 PYTEST=${SCRIPTS_DIR}/pytest
 
 MIN_TEST_COVERAGE=0
-CODE_DIR_NAME=src
+CODE_DIR_NAME=unity_utils
 TESTS_DIR_NAME=tests
 
-BLACK_LINE_LENGTH = 200
+BLACK_LINE_LENGTH = 120
 
 # ----------------------------------------------------------------------------
 # TARGETS
@@ -48,6 +48,21 @@ setup-dev: setup
 ## clean                           : Removes venv.
 clean:
 	rm -rf ./venv
+
+## build                           : Build the project wheel.
+build:
+	poetry update; \
+	poetry build; \
+	poetry install; \
+#	pip install ./dist/unity_utils-0.1.0-py3-none-any.whl --force-reinstall
+
+## clear                           : Remove generated files/folders from disk.
+clear:
+	rm -rf ./Audio;
+	rm -rf ./Scripts;
+	rm -rf ./Sprites;
+	rm -rf ./Docs;
+	rm -f README.md
 
 ## test                            : Run tests for the project.
 test: setup
@@ -75,7 +90,7 @@ format: setup
 
 ## bandit                          : Run bandit for the project.
 bandit: setup
-	${SCRIPTS_DIR}/bandit -r --ini ./bandit
+	${SCRIPTS_DIR}/bandit -r --ini ./.bandit
 
 ## tox                             : Run tox for the project.
 tox:
