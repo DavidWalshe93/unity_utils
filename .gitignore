@@ -137,3 +137,6 @@ package-lock.json
 .env*
 
 .idea/
+
+# Poetry
+poetry.lock

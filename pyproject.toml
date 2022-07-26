@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "unity_utils"
+version = "0.1.0"
+description = "Simple CLI command for Unity automation."
+authors = ["DavidWalshe93 <david.walshe93@gmail.com>"]
+
+[tool.poetry.scripts]
+unity_utils = "unity_utils.entry:app"
+unity-utils = "unity_utils.entry:app"
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+typer = "^0.6.1"
+
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
