@@ -1,8 +1,12 @@
+[build.cli]
+version_file = "./unity_utils/version.py"
+
 [tool.poetry]
 name = "unity_utils"
-version = "0.1.0"
+version = "0.1.1"
 description = "Simple CLI command for Unity automation."
 authors = ["DavidWalshe93 <david.walshe93@gmail.com>"]
+
 
 [tool.poetry.scripts]
 unity_utils = "unity_utils.entry:app"
@@ -12,6 +16,7 @@ unity-utils = "unity_utils.entry:app"
 [tool.poetry.dependencies]
 python = "^3.10"
 typer = "^0.6.1"
+toml = "^0.10.2"
 
 
 [tool.poetry.dev-dependencies]

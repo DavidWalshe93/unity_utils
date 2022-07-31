@@ -26,7 +26,7 @@ class ProjectInitializer:
         """
         folder_path = self.root_path / folder
         if not folder_path.exists():
-            folder_path.mkdir()
+            folder_path.mkdir(parents=True)
             secho(f"'{folder_path}' created.", fg=BRIGHT_GREEN)
         else:
             secho(f"'{folder_path}' already exists.", fg=BRIGHT_YELLOW)

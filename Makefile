@@ -51,10 +51,13 @@ clean:
 
 ## build                           : Build the project wheel.
 build:
+	pipx uninstall unity_utils; \
+	python ./scripts/update_cli_version.py
 	poetry update; \
-	poetry build; \
+	poetry build -f wheel; \
 	poetry install; \
-#	pip install ./dist/unity_utils-0.1.0-py3-none-any.whl --force-reinstall
+	echo "Installing `ls dist/ | grep -i ".whl" | sort -r | head -n 1`"; \
+	pipx install dist/`ls dist/ | grep -i ".whl" | sort -r | head -n 1` --force
 
 ## clear                           : Remove generated files/folders from disk.
 clear:

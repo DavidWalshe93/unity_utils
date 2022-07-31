@@ -8,7 +8,7 @@ from pytest import fixture, mark
 
 from .base import UnitTest
 
-from unity_utils.entry import ADD_FOLDERS, ADD_FILES
+from unity_utils.constants import FOLDERS, FILES
 from unity_utils.commands.init import ProjectInitializer
 
 
@@ -20,32 +20,32 @@ class TestProjectInitializer(UnitTest):
         """Returns a ProjectInitializer instance."""
         return ProjectInitializer(tmp_path)
 
-    @mark.parametrize("folder", ADD_FOLDERS)
+    @mark.parametrize("folder", FOLDERS)
     def test_create_folder(self, folder, project_initializer):
         """Test the create_folder method."""
         project_initializer.create_folder(folder)
         assert (project_initializer.root_path / folder).exists() == True
         assert (project_initializer.root_path / folder).is_dir() == True
 
-    @mark.parametrize("folder", ADD_FOLDERS)
+    @mark.parametrize("folder", FOLDERS)
     def test_create_folder_fail(self, folder, project_initializer, capsys):
         """Test the create_folder method."""
         path = Path(project_initializer.root_path / folder)
         assert path.exists() == False
-        path.mkdir()
+        path.mkdir(parents=True)
         Path(project_initializer.root_path / folder).mkdir(exist_ok=True)
         project_initializer.create_folder(folder)
 
         captured = capsys.readouterr()
         assert captured.out.find("already exists") != -1
 
-    @mark.parametrize("file", ADD_FILES)
+    @mark.parametrize("file", FILES)
     def test_create_file(self, file, project_initializer):
         """Test the create_file method."""
         project_initializer.create_file(file)
         assert (project_initializer.root_path / file).exists()
 
-    @mark.parametrize("file", ADD_FILES)
+    @mark.parametrize("file", FILES)
     def test_create_file_fail(self, file, project_initializer, capsys):
         """Test the create_file method."""
         path = Path(project_initializer.root_path / file)
