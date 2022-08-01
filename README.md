@@ -42,6 +42,7 @@ UnityProject/
     Assets/
         Audio/
         Docs/
+        Fonts/
         Scripts/
         Sprites/
         Scenes/
