@@ -2,9 +2,9 @@
 
 ---
 
-![example workflow](https://github.com/DavidWalshe93/unity_utils/actions/workflows/cicd/badge.svg)
-
-
+![Build](https://github.com/DavidWalshe93/unity_utils/actions/workflows/cicd.yml/badge.svg)
+[![codecov](https://codecov.io/gh/DavidWalshe93/unity_utils/branch/main/graph/badge.svg?token=M2L84RI4KE)](https://codecov.io/gh/DavidWalshe93/unity_utils)
+![GitHub](https://img.shields.io/github/license/mashape/apistatus)
 
 ## Overview 
 
