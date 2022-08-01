@@ -2,6 +2,10 @@
 
 ---
 
+![example workflow](https://github.com/DavidWalshe93/unity_utils/actions/workflows/cicd/badge.svg)
+
+
+
 ## Overview 
 
 ---
