@@ -18,13 +18,7 @@ _ROOT_FILES = [
 # ==============================================================================
 
 _ASSET_FOLDERS = [
-    os.path.join("Assets", folder) for folder in [
-        "Audio",
-        "Docs",
-        "Fonts",
-        "Scripts",
-        "Sprites"
-    ]
+    os.path.join("Assets", folder) for folder in ["Audio", "Docs", "Fonts", "Prefabs", "Scripts", "Sprites"]
 ]
 
 FOLDERS = [*_ASSET_FOLDERS]

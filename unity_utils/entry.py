@@ -5,17 +5,18 @@ Date:       26 July 2022
 
 import sys
 from pathlib import Path
-import toml
 
 from typer import Option, Typer, secho
 from typer.colors import BRIGHT_CYAN, BRIGHT_GREEN
 
 sys.path.append(str(Path(__file__).parent.parent.absolute()))
 
-from unity_utils.constants import FOLDERS, FILES
-
 from unity_utils.commands.init import (  # pylint: disable=wrong-import-position # noqa: E402
     ProjectInitializer,
+)
+from unity_utils.constants import (  # pylint: disable=wrong-import-position # noqa: E402
+    FILES,
+    FOLDERS,
 )
 
 app = Typer()
@@ -24,18 +25,21 @@ app = Typer()
 @app.command(name="version")
 def version():
     """Print the version number."""
-    from unity_utils.version import VERSION
+    from unity_utils.version import (  # pylint: disable=import-outside-toplevel # noqa: E402
+        VERSION,
+    )
+
     secho(f"{VERSION}", fg=BRIGHT_CYAN)
 
 
 @app.command(name="init")
 def init_unity_project(
-        project_path: Path = Option(
-            ...,
-            "-p",
-            "--project-path",
-            help="The path to the project to initialize. Defaults the the current working directory.",
-        )
+    project_path: Path = Option(
+        ...,
+        "-p",
+        "--project-path",
+        help="The path to the project to initialize. Defaults the the current working directory.",
+    )
 ):
     """Initialise a new Unity project with Folder/Files and Naming Conventions."""
     secho(f"Initialising Unity project in '{project_path}'...", fg=BRIGHT_CYAN)

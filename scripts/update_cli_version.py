@@ -14,7 +14,7 @@ def text(version: str):
     Returns formatted text.
     :param version: The text to print.
     """
-    return f"# THIS FILE IS AUTO-GENERATED\nVERSION = '{version}'\n"
+    return f'"""THIS FILE IS AUTO-GENERATED"""\nVERSION = "{version}"\n'
 
 
 if __name__ == '__main__':
