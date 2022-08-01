@@ -85,6 +85,3 @@ class TestProjectInitializer(UnitTest):
 
         captured = capsys.readouterr()
         assert captured.out.find(" does not exist") != -1
-
-    def test_fail(self):
-        assert False
