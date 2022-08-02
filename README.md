@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/DavidWalshe93/unity_utils/branch/main/graph/badge.svg?token=M2L84RI4KE)](https://codecov.io/gh/DavidWalshe93/unity_utils)
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus)
 
-## Overview 
+## Overview
 
 ---
 
@@ -32,7 +32,6 @@ You will need `make` to run the various `make` automation targets.
 4) `make test`  <--- Verify everything works.
 5) `make build` <--- Build the project and install `unity-utils` as a terminal command.
 
-
 ## Commands
 
 ---
@@ -51,11 +50,12 @@ UnityProject/
         Sprites/
         Scenes/
             Game.unity
+    .gitignore
     README.md
 ```
 
 The above file structure is a typical starting point for most new project. To keep projects
-structures similar between projects, the `init` command sets up a repeatable structure. This is 
+structures similar between projects, the `init` command sets up a repeatable structure. This is
 handy for beginners or those working on various small projects starting out with Unity.
 
 
