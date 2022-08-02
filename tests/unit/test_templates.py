@@ -8,14 +8,14 @@ from pytest import fixture, mark, raises
 from tests.unit import UnitTest
 
 from unity_utils.templates.template_factory import TemplateFactory, TemplateType, TemplateData
-from unity_utils.templates.gitignore import content as gitignore_content
+from unity_utils.templates.gitignore import CONTENT as GITIGNORE_CONTENT
 
 
 class TestTemplateFactory(UnitTest):
     """Tests for TemplateFactory."""
 
     @mark.parametrize("type_, file_name, content", [
-        (TemplateType.GITIGNORE, ".gitignore", gitignore_content),
+        (TemplateType.GITIGNORE, ".gitignore", GITIGNORE_CONTENT),
     ])
     def test_make(self, type_, file_name, content, tmp_path):
         # WHEN
@@ -35,7 +35,7 @@ class TestTemplateFactory(UnitTest):
         result = TemplateFactory.make_gitignore(location=tmp_path)
         # THEN
         assert result.file_name == ".gitignore"
-        assert result.content == gitignore_content
+        assert result.content == GITIGNORE_CONTENT
         assert result.location == tmp_path
 
 

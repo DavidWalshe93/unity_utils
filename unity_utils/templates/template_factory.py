@@ -4,15 +4,16 @@ Date:       02 August 2022
 """
 
 from enum import Enum
-from typing import NamedTuple
 from pathlib import Path
+from typing import NamedTuple
 
 # Templates
-from unity_utils.templates.gitignore import content as gitignore_content
+from unity_utils.templates.gitignore import CONTENT as gitignore_content
 
 
 class TemplateType(Enum):
     """Enum for the different types of templates."""
+
     GITIGNORE = "gitignore"
 
 
@@ -20,6 +21,7 @@ class TemplateData(NamedTuple):
     """
     Data to be used to generate a template.
     """
+
     file_name: str
     content: str
     location: Path
@@ -38,6 +40,7 @@ class TemplateData(NamedTuple):
 
 
 class TemplateFactory:
+    """Factory class to create TemplateData objects."""
 
     @classmethod
     def make(cls, type_: TemplateType, location: Path) -> TemplateData:
@@ -45,9 +48,7 @@ class TemplateFactory:
         if not isinstance(type_, TemplateType):
             raise TypeError(f"Expected TemplateType, got {type(type_)}")
 
-        return {
-            TemplateType.GITIGNORE: cls.make_gitignore,
-        }.get(type_)(location)
+        return {TemplateType.GITIGNORE: cls.make_gitignore}.get(type_)(location)
 
     @classmethod
     def make_gitignore(cls, location: Path) -> TemplateData:

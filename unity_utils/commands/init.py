@@ -8,7 +8,7 @@ from pathlib import Path
 from typer import Typer, secho
 from typer.colors import BRIGHT_GREEN, BRIGHT_RED, BRIGHT_YELLOW
 
-from unity_utils.templates.template_factory import TemplateFactory, TemplateType, TemplateData
+from unity_utils.templates.template_factory import TemplateFactory, TemplateType
 
 app = Typer()
 
@@ -65,9 +65,7 @@ class ProjectInitializer:
         """
         Add the template files to the project.
         """
-        templates = [
-            TemplateFactory.make(TemplateType.GITIGNORE, location=self.root_path)
-        ]
+        templates = [TemplateFactory.make(TemplateType.GITIGNORE, location=self.root_path)]
 
         for template in templates:
             secho(f"Creating template: {template.file_path}", fg=BRIGHT_GREEN)
