@@ -8,6 +8,8 @@ from pathlib import Path
 from typer import Typer, secho
 from typer.colors import BRIGHT_GREEN, BRIGHT_RED, BRIGHT_YELLOW
 
+from unity_utils.templates.template_factory import TemplateFactory, TemplateType, TemplateData
+
 app = Typer()
 
 
@@ -53,9 +55,20 @@ class ProjectInitializer:
         """
         file_path = self.root_path / file
         new_file_path = self.root_path / new_file
-        print(file_path, new_file_path)
         if file_path.exists():
             file_path.rename(new_file_path)
             secho(f"'{file_path}' renamed to '{new_file_path}'.", fg=BRIGHT_GREEN)
         else:
             secho(f"'{file_path}' does not exist.", fg=BRIGHT_RED)
+
+    def add_template_files(self):
+        """
+        Add the template files to the project.
+        """
+        templates = [
+            TemplateFactory.make(TemplateType.GITIGNORE, location=self.root_path)
+        ]
+
+        for template in templates:
+            secho(f"Creating template: {template.file_path}", fg=BRIGHT_GREEN)
+            template.create()

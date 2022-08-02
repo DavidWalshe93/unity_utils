@@ -85,3 +85,18 @@ class TestProjectInitializer(UnitTest):
 
         captured = capsys.readouterr()
         assert captured.out.find(" does not exist") != -1
+
+    def test_add_template_files(self, project_initializer, tmp_path):
+        """Test the add_template_files method."""
+        # GIVEN
+        files = [
+            tmp_path / ".gitignore"
+        ]
+        # Ensure no files previously exist before running.
+        assert any([file.exists() for file in files]) == False
+
+        # WHEN
+        project_initializer.add_template_files()
+        # THEN
+        # Ensure all files exist after running.
+        assert all([file.exists() for file in files]) == True
