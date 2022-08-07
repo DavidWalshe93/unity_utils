@@ -52,7 +52,7 @@ def init_unity_project(
     _ = [initializer.create_file(file) for file in FILES]
 
     secho("Renaming files...", fg=BRIGHT_CYAN)
-    initializer.rename_file("Assets/Scenes/DefaultScene.unity", "Assets/Scenes/Game.unity")
+    initializer.rename_file("Assets/Scenes/SampleScene.unity", "Assets/Scenes/Game.unity")
 
     secho("Done.", fg=BRIGHT_GREEN)
 

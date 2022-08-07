@@ -15,7 +15,7 @@ class IntegrationTest(BaseTest):
         scenes = tmp_path / "Assets" / "Scenes"
 
         scenes.mkdir(exist_ok=True, parents=True)
-        (scenes / "DefaultScene.unity").touch()
+        (scenes / "SampleScene.unity").touch()
 
     @fixture
     def cli_runner(self, new_project_setup) -> CliRunner:
